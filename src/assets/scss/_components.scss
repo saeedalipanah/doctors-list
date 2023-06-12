@@ -1,0 +1,217 @@
+@import 'breakpoints';
+// footer
+.footer {
+  position: absolute;
+  background: #303846;
+  height: 120px;
+  width: 100%;
+  i {
+    color: rgb(183, 183, 183);
+  }
+}
+
+//navbar(navigatino)
+.navigation {
+  background: #303846;
+  width: 100%;
+  height: 60px;
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 5px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  h1 {
+    color: white;
+    font-size: clamp(18px, 2vw, 35px);
+    span {
+      font-size: clamp(15px, 2vw, 23px);
+      font-weight: 600;
+    }
+  }
+}
+
+
+//doctors list
+.doctors-container {
+  width: 80%;
+}
+.doctors-header {
+  // background-color: red;
+  border-bottom: 1px solid rgb(202, 202, 202);
+  padding-bottom: 5px;
+  justify-content: space-between;
+}
+.input-box {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  position: relative;
+  input {
+    width: 100%;
+    padding: 10px 30px;
+  }
+  i {
+    position: absolute;
+    left: 5px;
+    font-size: 20px;
+  }
+}
+.filters {
+  display: flex;
+  width: 50%;
+  max-width: 500px;
+  min-width: 152px;
+  @include md {
+    display: block;
+  }
+}
+.new-btn {
+  padding: 5px;
+
+  .router-link {
+    text-decoration: none;
+    color: black;
+  }
+  i {
+    font-size: 15px;
+    margin-left: 5px;
+  }
+}
+.sort-box {
+  margin-left: 5px;
+  button {
+    margin-left: 10px;
+    height: 100%;
+    padding: 5px;
+  }
+}
+
+//doctor card
+li {
+  .d-card {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 15% 14% 20% 18% 25% 8%;
+    align-items: center;
+    padding: 20px 10px;
+    background-color: #ffffff;
+    margin: 5px 0;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    @include md {
+      display: inline-block;
+      text-align: center;
+    }
+    .d-card-avatar {
+      width: 80%;
+      max-width: 200px;
+    }
+    .d-card-info-sec {
+      .bx {
+        font-size: 20px;
+        cursor: pointer;
+        margin: 0 2px;
+      }
+      label {
+        color: rgb(143, 143, 143);
+        font-size: 12px;
+      }
+      .comment-label {
+        @include md {
+          display: none;
+        }
+      }
+      .comment-input {
+        min-width: 80%;
+        max-width: 100%;
+        width: 90% !important;
+        max-height: 100px;
+        padding: 5px;
+      }
+      &.responsive {
+        @include md {
+          display: flex;
+          justify-content: space-between;
+          box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+          padding: 5px 10px;
+          margin-bottom: 10px;
+        }
+      }
+    }
+  }
+}
+
+
+//registeration form
+.form {
+  width: 90%;
+  max-width: 600px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 3px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  fieldset {
+    border: none;
+    &.error {
+      input{
+        border: 1px solid red;
+      }
+      p{
+        color: red;
+      }
+    }
+    p{
+      font-size: 13px;
+      font-weight: 300;
+      font-style: italic;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+    .inp {
+      padding: 10px;
+      option {
+        font-size: 15px;
+      }
+    }
+  }
+}
+.w-100 {
+  width: 100%;
+}
+.actions {
+  display: flex;
+  justify-content: end;
+  margin-top: 20px;
+  .btn {
+    padding: 10px 25px;
+    margin: 0 5px;
+    cursor: pointer;
+    font-weight: 400;
+    transition: all .2s ease;
+    background-color: transparent;
+    &.success {
+      color: #29b36f;
+      border-radius: 3px;
+      border: 1px solid #29b36f;
+      &:hover{
+        background-color: #29b36e6a;
+        border: 1px solid transparent;
+      }
+    }
+    &.error {
+      border-radius: 3px;
+      border: 1px solid grey;
+      text-decoration: none;
+      font-size: 13px;
+      color: rgb(77, 77, 77);
+      &:hover{
+        background-color: rgba(128, 0, 0, 0.229);
+        border: 1px solid transparent;
+        color: red;
+      }
+    }
+  }
+}
