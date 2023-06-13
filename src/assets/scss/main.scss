@@ -12,8 +12,10 @@
 .app {
   background-color: #ffffff;
   background-image: url('@/assets/images/main-bg.jpg');
+  background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  background-attachment: fixed;
   min-height: 100vh;
   margin-top: 60px;
   padding-bottom: 30px;

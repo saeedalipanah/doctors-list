@@ -47,7 +47,6 @@
   }
 }
 .doctors-header {
-  // background-color: red;
   border-bottom: 1px solid rgb(202, 202, 202);
   padding-bottom: 5px;
   justify-content: space-between;
@@ -60,6 +59,10 @@
   input {
     width: 100%;
     padding: 10px 30px;
+    background: transparent;
+    outline: none;
+    border: 1px solid black;
+    border-radius: 3px;
   }
   i {
     position: absolute;
