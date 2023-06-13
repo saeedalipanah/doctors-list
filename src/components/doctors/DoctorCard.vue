@@ -44,49 +44,58 @@ const dislikeClassHandler = computed(() => (doctor.isDislike ? 'bxs-dislike' : '
   <li>
     <div class="d-card">
       <!-- Doctor picture -->
-      <img src="@/assets/images/d-avatar.png" alt="Avatar" class="d-card-avatar" />
+      <img src="@/assets/images/d-avatar1.png" alt="Avatar" class="d-card-avatar" />
 
-      <!-- Doctor name -->
-      <section class="d-card-info-sec">
-        <h1>{{ doctor.name }}</h1>
-      </section>
+      <div class="d-card-informations">
+        <!-- Doctor name -->
+        <section class="d-flex align-center" style="border-bottom: 1px solid #d2d2d2">
+          <img src="@/assets/images/d-avatar1.png" alt="Avatar" class="d-card-rounded-avatar" />
+          <h1>{{ doctor.name }}</h1>
+        </section>
 
-      <!-- Doctor email -->
-      <section class="d-card-info-sec responsive">
-        <label for="">Email</label>
-        <h4>{{ doctor.email }}</h4>
-      </section>
+        <!-- Doctor email -->
+        <section>
+          <h4 class="d-flex align-center"><i class="bx bxs-envelope"></i>{{ doctor.email }}</h4>
+        </section>
 
-      <!-- Doctor Specialisations -->
-      <section class="d-card-info-sec responsive">
-        <label for="">Specialisations</label>
-        <ul>
-          <li v-for="(special, i) in doctor.specialisations" :key="i">
-            <h4>{{ special }} <span v-if="i !== doctor.specialisations.length - 1">,</span></h4>
-          </li>
-        </ul>
-      </section>
+        <!-- Doctor Specialisations -->
+        <section class="">
+          <ul>
+            <li v-for="(special, i) in doctor.specialisations" :key="i">
+              <h4 class="d-flex align-center">
+                <i class="bx bxs-brain"></i>{{ special }}
+                <span v-if="i !== doctor.specialisations.length - 1">,</span>
+              </h4>
+            </li>
+          </ul>
+        </section>
 
-      <!-- Doctor comment -->
-      <section class="d-card-info-sec">
-        <label for="" class="comment-label">Comment</label>
-        <textarea
-          class="comment-input"
-          rows="4"
-          maxlength="120"
-          v-model="doctor.comment"
-          placeholder="Write your comment"
-        />
-      </section>
+        <!-- Doctor description -->
+        <h6 class="">{{ doctor.description }}</h6>
+      </div>
 
-      <!-- Doctor like actions -->
-      <section class="d-card-info-sec d-flex flex-col align-center">
-        <div class="actions">
-          <i :class="`bx ${likeClassHandler}`" style="color: #29b36f" @click="toggleLike"></i>
-          <i :class="`bx ${dislikeClassHandler}`" style="color: red" @click="toggleDislike"></i>
-        </div>
-        <p>{{ doctor.likes }} likes</p>
-      </section>
+      <div class="d-card-actions">
+        <!-- Doctor comment -->
+        <section class="">
+          <label for="" class="comment-label">Comment</label>
+          <textarea
+            class="comment-input"
+            rows="4"
+            maxlength="120"
+            v-model="doctor.comment"
+            placeholder="Write your comment"
+          />
+        </section>
+
+        <!-- Doctor like actions -->
+        <section class="d-flex flex-col align-center">
+          <div style="font-size: 20px">
+            <i :class="`bx ${likeClassHandler}`" style="color: #29b36f" @click="toggleLike"></i>
+            <i :class="`bx ${dislikeClassHandler}`" style="color: red" @click="toggleDislike"></i>
+          </div>
+          <p>{{ doctor.likes }} likes</p>
+        </section>
+      </div>
     </div>
   </li>
 </template>

@@ -5,15 +5,16 @@ import Footer from './components/containers/Footer.vue'
 </script>
 
 <template>
-  <header class="navigation">
-    <Navbar></Navbar>
-  </header>
-  <main id="app">
-    <router-view v-slot="{ Component }">
-      <keep-alive>
-        <component :is="Component" />
-      </keep-alive>
-    </router-view>
-  </main>
-  <Footer></Footer>
+
+    <header class="navigation">
+      <Navbar></Navbar>
+    </header>
+    <main class="app">
+      <router-view v-slot="{ Component }">
+        <keep-alive>
+          <component :is="Component" />
+        </keep-alive>
+      </router-view>
+    </main>
+    <Footer></Footer>
 </template>

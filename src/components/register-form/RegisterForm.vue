@@ -66,7 +66,7 @@ const resetForm = () => {
   <form class="form" @submit.prevent="submitForm">
     <!-- Form explation -->
     <h1>Registration Form</h1>
-    <p style="margin-bottom: 20px">
+    <p style="margin-bottom: 5px">
       Enter your information and join the great MediChoice community.
     </p>
     <!-- Name filed -->

@@ -31,7 +31,7 @@ export const useDoctorStore = defineStore('doctor', () => {
       id: 'e5ddbd3e43e6a',
       name: 'Saeed',
       email: 'saeed55@gmail.com',
-      specialisations: ['Cardiologist', 'Dermatologist'],
+      specialisations: ['Cardiologist', 'Dermatologist','Dermatologist'],
       likes: 352,
       isDisiked: false,
       isLiked: false,

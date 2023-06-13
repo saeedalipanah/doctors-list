@@ -21,7 +21,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 0 5px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  box-shadow: 0 1px 5px 1px rgb(144, 144, 144);
   h1 {
     color: white;
     font-size: clamp(18px, 2vw, 35px);
@@ -35,7 +35,16 @@
 
 //doctors list
 .doctors-container {
-  width: 80%;
+  width: 95%;
+  max-width: 1100px;
+}
+.doctors{
+  @include md{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+  }
 }
 .doctors-header {
   // background-color: red;
@@ -68,8 +77,16 @@
   }
 }
 .new-btn {
+  background: none;
+  outline: none;
+  border: 1px solid rgb(64, 64, 64);
+  border-radius: 3px;
   padding: 5px;
-
+  transition: .3s ease;
+  &:hover{
+    border: 1px solid #00fbff51;
+    background: #00fbff51;
+  }
   .router-link {
     text-decoration: none;
     color: black;
@@ -81,43 +98,81 @@
 }
 .sort-box {
   margin-left: 5px;
+  @include md{
+    margin-top: 5px;
+  }
   button {
+    cursor: pointer;
     margin-left: 10px;
     height: 100%;
-    padding: 5px;
   }
 }
 
 //doctor card
 li {
+  @include md {
+    flex: 0 0 48%;
+  }
+  @include sm {
+    flex: 0 0 100%;
+  }
   .d-card {
     width: 100%;
     display: grid;
-    grid-template-columns: 15% 14% 20% 18% 25% 8%;
+    grid-template-columns: 20% 40% 40%;
     align-items: center;
-    padding: 20px 10px;
     background-color: #ffffff;
-    margin: 5px 0;
+    margin: 10px 0;
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    border-radius: 5px;
+    overflow: hidden;
+    background-image: url('@/assets/images/card-bg1.png');
+    background-repeat: no-repeat;
+    background-position: 30%;
+    background-size: contain;
     @include md {
       display: inline-block;
       text-align: center;
+      background-size: cover;
+      min-height: 475px;
     }
     .d-card-avatar {
-      width: 80%;
+      width: 100%;
       max-width: 200px;
+      min-width: 150px;
+      @include md {
+        width: 20%;
+        margin-top: 10px;
+        border-radius: 50%;
+      }
     }
-    .d-card-info-sec {
-      .bx {
-        font-size: 20px;
-        cursor: pointer;
-        margin: 0 2px;
+    .d-card-rounded-avatar {
+      width: 30px;
+      border-radius: 50px;
+      margin-right: 5px;
+      @include md {
+        display: none;
       }
-      label {
-        color: rgb(143, 143, 143);
-        font-size: 12px;
+    }
+    .d-card-informations {
+      padding-left: 20px;
+      text-align: center;
+      @include md {
+        min-height: 180px;
       }
+      h4 {
+        font-weight: 500;
+        font-size: 17px;
+        i {
+          margin-right: 5px;
+          font-size: 20px;
+        }
+      }
+    }
+    .d-card-actions {
+      padding: 0 20px;
       .comment-label {
+        font-size: 14px;
         @include md {
           display: none;
         }
@@ -129,25 +184,29 @@ li {
         max-height: 100px;
         padding: 5px;
       }
-      &.responsive {
-        @include md {
-          display: flex;
-          justify-content: space-between;
-          box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-          padding: 5px 10px;
-          margin-bottom: 10px;
-        }
+      i{
+        cursor: pointer;
       }
+    }
+    h6 {
+      font-weight: 500;
+      font-size: 9px;
+      padding-right: 10px;
+      margin: 5px 0;
+      text-align: start;
     }
   }
 }
-
 
 //registeration form
 .form {
   width: 90%;
   max-width: 600px;
   background-color: white;
+  background-image: url('@/assets/images/card-bg1.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
   padding: 20px;
   border-radius: 3px;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);

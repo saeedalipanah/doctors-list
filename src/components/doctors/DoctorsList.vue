@@ -69,7 +69,7 @@ const listToShow = computed(() =>
         </div>
         <div class="sort-box d-flex align-center">
           <h3>SortBy</h3>
-          <button @click="toggleSort" class="d-flex align-center">
+          <button @click="toggleSort" class="d-flex align-center  new-btn">
             <span> Popularity </span>
             <i :class="`bx bxs-${sortIconHanler}-arrow`" style="margin-left: 5px"></i>
           </button>
@@ -84,7 +84,7 @@ const listToShow = computed(() =>
     </header>
 
     <!-- list of doctors -->
-    <TransitionGroup tag="ul" name="fade" >
+    <TransitionGroup tag="ul" name="fade" class="doctors">
       <doctor-card v-for="(doctor, index) in listToShow" :key="index" :doctor="doctor">
       </doctor-card>
     </TransitionGroup>
