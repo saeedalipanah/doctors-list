@@ -4,6 +4,6 @@ import RegisterForm from '../components/register-form/RegisterForm.vue'
 
 <template>
   <main class="routes">
-  <register-form></register-form>
+    <register-form></register-form>
   </main>
 </template>

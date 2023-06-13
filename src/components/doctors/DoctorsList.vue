@@ -1,9 +1,10 @@
 <script setup>
 // components
 import DoctorCard from './DoctorCard.vue'
-
+import { useRouter } from 'vue-router';
 import { useDoctorStore } from '../../stores/doctors'
 import { computed, ref } from 'vue'
+const router = useRouter()
 //stored doctors fetch
 const doctorStore = useDoctorStore()
 const doctors = computed(() => doctorStore.doctors)
@@ -48,6 +49,10 @@ const listToShow = computed(() =>
   searchedName.value ? filteredList.value : sortOrder.value ? sortedList.value : doctors.value
 )
 
+const goToReg = ()=>{
+  router.push({name:'register'})
+}
+
 </script>
 
 <template>
@@ -77,8 +82,8 @@ const listToShow = computed(() =>
       </figure>
 
       <!-- Register btn -->
-      <button class="new-btn d-flex align-center">
-        <router-link class="router-link" :to="{ name: 'register' }"> Register </router-link>
+      <button class="new-btn d-flex align-center" @click="goToReg">
+         Register 
         <i class="bx bx-user-plus"></i>
       </button>
     </header>

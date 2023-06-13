@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { ref } from 'vue'
+import { ref  } from 'vue'
 
 export const useDoctorStore = defineStore('doctor', () => {
   const doctors = ref([
@@ -31,7 +31,7 @@ export const useDoctorStore = defineStore('doctor', () => {
       id: 'e5ddbd3e43e6a',
       name: 'Saeed',
       email: 'saeed55@gmail.com',
-      specialisations: ['Cardiologist', 'Dermatologist','Dermatologist'],
+      specialisations: ['Cardiologist', 'Dermatologist'],
       likes: 352,
       isDisiked: false,
       isLiked: false,
@@ -50,12 +50,23 @@ export const useDoctorStore = defineStore('doctor', () => {
       comment: '',
       description:
         'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt illo commodi aspernatur, quaerat amet iure perspiciatis deleniti earum magnam.'
-    }
+    },
+    {
+      id: 'b1aaba8e22e5b',
+      name: 'mehran',
+      email: 'mehran@gmail.pl',
+      specialisations: ['Psychiatrist','Dermatologist','Surgeon'],
+      likes: 245,
+      isDisiked: false,
+      isLiked: false,
+      comment: '',
+      description:
+        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt illo commodi aspernatur, quaerat amet iure perspiciatis deleniti earum magnam.'
+    },
   ])
 
   const createNewDoctor = (doctor) => {
     doctors.value.push(doctor)
   }
-
-  return { doctors, createNewDoctor }
+  return { doctors, createNewDoctor, }
 })

@@ -85,6 +85,7 @@
   border: 1px solid rgb(64, 64, 64);
   border-radius: 3px;
   padding: 5px;
+  cursor: pointer;
   transition: .3s ease;
   &:hover{
     border: 1px solid #00fbff51;
@@ -105,7 +106,6 @@
     margin-top: 5px;
   }
   button {
-    cursor: pointer;
     margin-left: 10px;
     height: 100%;
   }
