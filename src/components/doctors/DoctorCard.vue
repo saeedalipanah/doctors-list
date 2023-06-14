@@ -1,5 +1,4 @@
 <script setup>
-import { computed } from 'vue'
 
 // props accepted
 const { doctor } = defineProps(['doctor'])
@@ -18,6 +17,8 @@ const toggleLike = () => {
     doctor.isLiked = false
     doctor.likes--
   }
+
+  console.log(doctor.name);
 }
 //dislike logic
 const toggleDislike = () => {
