@@ -2,6 +2,7 @@
 import { reactive, ref } from 'vue'
 import { useDoctorStore } from '../../stores/doctors'
 import { useRouter } from 'vue-router'
+import {OECValidation , emailValidation} from '@/composables/validations'
 
 const router = useRouter()
 const doctorStore = useDoctorStore()
@@ -27,11 +28,11 @@ const availableSpecials = ref([
 
 //name validations
 const checkNameValidation = () => {
-  enteredName.isValid = /^[A-Za-z\s]+$/.test(enteredName.value)
+  enteredName.isValid = OECValidation(enteredName.value) //Only English Characters Validation 
 }
 //email validations
 const checkEmailValidation = () => {
-  enteredEmail.isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(enteredEmail.value)
+  enteredEmail.isValid = emailValidation(enteredEmail.value)
 }
 
 const submitForm = () => {

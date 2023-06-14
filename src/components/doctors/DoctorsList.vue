@@ -1,10 +1,16 @@
 <script setup>
-// components
-import DoctorCard from './DoctorCard.vue'
 import { useRouter } from 'vue-router';
 import { useDoctorStore } from '../../stores/doctors'
 import { computed, ref } from 'vue'
+// components
+import DoctorCard from './DoctorCard.vue'
+// composables
+import filterList from '@/composables/filterList.js'
+import toggleSort from '@/composables/toggleSort.js'
+
+const {sortOrder , toggleSortOrder} = toggleSort()
 const router = useRouter()
+
 //stored doctors fetch
 const doctorStore = useDoctorStore()
 const doctors = computed(() => doctorStore.doctors)
@@ -12,28 +18,17 @@ const doctors = computed(() => doctorStore.doctors)
 //filter on name
 const searchedName = ref('')
 let filteredList = ref([])
+
 const onChangeSearchInput = () => {
-  filteredList.value = doctors.value.filter((doctor) =>
-    doctor.name.toUpperCase().includes(searchedName.value.toLocaleUpperCase())
-  )
+  //composable (reuseable) filterList function
+filteredList.value = filterList(doctors.value, searchedName.value)
 }
 
-//sort on likes
-const sortOrder = ref('')
-const originalDoctorsList = ref('')
-originalDoctorsList.value = [...doctors.value]
-const toggleSort = () => {
-  if (sortOrder.value === '') {
-    sortOrder.value = 'asc'
-  } else if (sortOrder.value === 'asc') {
-    sortOrder.value = 'desc'
-  } else if (sortOrder.value === 'desc') {
-    sortOrder.value = ''
-  }
-}
+
+// sort based on sortOrder
 const sortedList = computed(() => {
   const copy = searchedName.value ? [...filteredList.value] : [...doctors.value]
-  if (sortOrder.value === 'asc') {
+  if (sortOrder.value === 'asc') { //sortOrder is coming from toggle sort composable
     return copy.sort((a, b) => b.likes - a.likes)
   } else if (sortOrder.value === 'desc') {
     return copy.sort((a, b) => a.likes - b.likes)
@@ -74,7 +69,7 @@ const goToReg = ()=>{
         </div>
         <div class="sort-box d-flex align-center">
           <h3>SortBy</h3>
-          <button @click="toggleSort" class="d-flex align-center  new-btn">
+          <button @click="toggleSortOrder" class="d-flex align-center  new-btn">
             <span> Popularity </span>
             <i :class="`bx bxs-${sortIconHanler}-arrow`" style="margin-left: 5px"></i>
           </button>
