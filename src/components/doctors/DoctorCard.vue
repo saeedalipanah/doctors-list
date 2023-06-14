@@ -34,10 +34,6 @@ const toggleDislike = () => {
     doctor.likes++
   }
 }
-
-//template class handlers
-const likeClassHandler = computed(() => (doctor.isLiked ? 'bxs-like' : 'bx-like'))
-const dislikeClassHandler = computed(() => (doctor.isDislike ? 'bxs-dislike' : 'bx-dislike'))
 </script>
 
 <template>
@@ -90,8 +86,16 @@ const dislikeClassHandler = computed(() => (doctor.isDislike ? 'bxs-dislike' : '
         <!-- Doctor like actions -->
         <section class="d-flex flex-col align-center">
           <div style="font-size: 20px">
-            <i :class="`bx ${likeClassHandler}`" style="color: #29b36f" @click="toggleLike"></i>
-            <i :class="`bx ${dislikeClassHandler}`" style="color: red" @click="toggleDislike"></i>
+            <i
+              :class="`bx ${doctor.isLiked ? 'bxs-like' : 'bx-like'}`"
+              style="color: #29b36f"
+              @click="toggleLike"
+            ></i>
+            <i
+              :class="`bx ${doctor.isDislike ? 'bxs-dislike' : 'bx-dislike'}`"
+              style="color: red"
+              @click="toggleDislike"
+            ></i>
           </div>
           <p>{{ doctor.likes }} likes</p>
         </section>
