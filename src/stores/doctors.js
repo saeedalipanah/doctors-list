@@ -66,7 +66,7 @@ export const useDoctorStore = defineStore('doctor', () => {
   ])
 
   const createNewDoctor = (doctor) => {
-    doctors.value.push(doctor)
+    doctors.value.unshift(doctor)
   }
   return { doctors, createNewDoctor, }
 })
