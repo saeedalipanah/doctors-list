@@ -17,8 +17,6 @@ const toggleLike = () => {
     doctor.isLiked = false
     doctor.likes--
   }
-
-  console.log(doctor.name);
 }
 //dislike logic
 const toggleDislike = () => {
